@@ -97,7 +97,6 @@ export default {
   },
   data() {
     return {
-      formLabelWidth: "120px",
       dialogFormVisible: false,
       userarray: [],
       radio: "1",
