@@ -27,11 +27,11 @@ export default {
       console.log(key);
       var that=this;
       if(key==1){
-        that.$router.push(name='index')
+        that.$router.push({name:'index'})
       }else if(key==2){
-        that.$router.push(name='index')
+        that.$router.push({name:'index'})
       }else if(key==3){
-        that.$router.push(name='news')
+        that.$router.push({name:'news'})
       }
     }
   }

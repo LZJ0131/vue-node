@@ -9,7 +9,7 @@ const news=()=>import('@/pages/new')
 export default new Router({
   routes: [
     {
-      path: '/index',
+      path: '/',
       name:'index',
       component: index
     },
