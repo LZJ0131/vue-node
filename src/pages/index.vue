@@ -34,8 +34,7 @@
           :data="userarray"
           style="width:100%;"
           max-height="700px"
-          :default-sort="{prop: 'id', order: 'ascending'}"
-        >
+          :default-sort="{prop: 'id', order: 'ascending'}">
           <el-table-column prop="id" label="用户id"></el-table-column>
           <el-table-column prop="user_name" label="姓名"></el-table-column>
           <el-table-column prop="user_phone" label="用户名"></el-table-column>
@@ -90,6 +89,7 @@
 
 <script>
 import topmenu from "../components/TopMenu";
+
 export default {
   name: "index",
   components: {
@@ -110,11 +110,11 @@ export default {
         name: "",
         username: "",
         sex: ""
-      },
-      show: 0
+      }
     };
   },
   methods: {
+    // 获取用户列表
     getuser() {
       var that = this;
       that.$api.getuser().then(res => {
@@ -123,6 +123,7 @@ export default {
         }
       });
     },
+    // 修改用户信息
     changeinfo(obj) {
       var that = this;
       that.dialogFormVisible = true;
@@ -133,12 +134,15 @@ export default {
         sex: String(obj.user_sex)
       };
     },
+    // 删除用户
     delinfo(id, status) {
       var that = this;
-      that.$api.deluser({
-            id: id,
-            status: status
-        }).then(res => {
+      that.$api
+        .deluser({
+          id: id,
+          status: status
+        })
+        .then(res => {
           if (res.status == 200) {
             that.$message({
               message: "操作成功",
@@ -148,6 +152,7 @@ export default {
           }
         });
     },
+    // 确认修改用户
     surechange() {
       var that = this;
       if (that.obj.name == "") {
@@ -173,6 +178,7 @@ export default {
         });
       }
     },
+    // 搜索
     searchclick() {
       var that = this;
       if (
@@ -189,6 +195,7 @@ export default {
         });
       }
     },
+    // 清空
     clearnull() {
       var that = this;
       that.$set(that.search, "name", "");

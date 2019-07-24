@@ -11,19 +11,17 @@ import axios from 'axios'
 //   axios.defaults.baseURL='http://localhost:3000';
 // }
 
-
 // 这个用途不一样，
 // baseUrl会附加到你绑定的axios实例（如果是全局的，那就是所有实例）上，即如果get/post的url参数是相对路径（如） /api/c/xx，那就会执行 baseUrl + '/api/c/xx',如果未指定baseUrl，那就走浏览器地址栏里的base + baseUrl。
 // webpack里的proxyTable是测试环境为了避免浏览器下的跨域访问，而以nodejs代理成同前端页面（即浏览器地址栏）同域的一种处理。指定proxyTable后， axios就不需要指定baseUrl了。proxyTable会把base + '/api/c/xx'代理到【base baseUrl + '/api/c/xx'】的接口地址上。
+
 // 请求过期时间
 axios.defaults.timeout=10000;
-
+// post请求头设置
 axios.defaults.headers.post['Content-Type']="application/x-www-form-urlencoded;charset='UTF-8'"
 
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 // import store from '@/store/index';
-
 // // 请求拦截器axios.interceptors.request.use(
 //     config => {
 //         // 每次发送请求之前判断vuex中是否存在token

@@ -10,8 +10,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
  
 
-import api from '../request/api' // 导入api接口
-
+import api from './request/api' // 导入api接口
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
 
 
