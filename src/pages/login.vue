@@ -44,7 +44,11 @@ export default {
         return false;
       }
       that.$api.login(that.form).then(res=>{
-        console.log(res)
+        // if(!res.status){
+        //   that.$message({
+        //     message:'填写出错'
+        //   })
+        // }
       })
     }
   }
