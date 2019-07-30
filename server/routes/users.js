@@ -11,8 +11,8 @@ var jsonParser = bodyParser.json()
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // 登录
-router.get('/login', function (req, res, next) {
-    var obj = req.query;
+router.post('/login',jsonParser, function (req, res, next) {
+    var obj = req.body;
     db.query('select * from tour_user where user_phone=' + obj.username + '', function (err, rows, fields) {
         if (rows.length == 0) {
             res.send({

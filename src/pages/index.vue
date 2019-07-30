@@ -89,7 +89,6 @@
 
 <script>
 import topmenu from "../components/TopMenu";
-
 export default {
   name: "index",
   components: {
@@ -203,11 +202,12 @@ export default {
       that.$set(that.search, "sex", "");
       that.getuser();
     }
+
   },
   mounted() {
     var that = this;
     that.getuser();
-  }
+}
 };
 </script>
 

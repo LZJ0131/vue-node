@@ -8,16 +8,16 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-// const createLintingRule = () => ({
-//   test: /\.(js|vue)$/,
-//   loader: 'eslint-loader',
-//   enforce: 'pre',
-//   include: [resolve('src'), resolve('test')],
-//   options: {
-//     formatter: require('eslint-friendly-formatter'),
-//     emitWarning: !config.dev.showEslintErrorsInOverlay
-//   }
-// })
+const createLintingRule = () => ({
+  test: /\.(js|vue)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('src'), resolve('test')],
+  options: {
+    formatter: require('eslint-friendly-formatter'),
+    emitWarning: !config.dev.showEslintErrorsInOverlay
+  }
+})
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -32,7 +32,9 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
+    // 自动解析确定的扩展
     extensions: ['.js', '.vue', '.json'],
+    // 解析别名
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -40,7 +42,7 @@ module.exports = {
   },
   module: {
     rules: [
-      // ...(config.dev.useEslint ? [createLintingRule()] : []),
+       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',

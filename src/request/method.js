@@ -6,6 +6,16 @@ import QS from 'qs'
   * @param {String} url [请求的url地址]
   * @param {Object} params [请求时携带的参数]
   */
+
+//  function timeout(ms) {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(resolve, ms, 'done');
+//     });
+//   }
+  
+//   timeout(100).then((value) => {
+//     console.log(value);
+//   });
  export function get(url, params){
   return new Promise((resolve, reject) =>{
       axios.get(url, {
